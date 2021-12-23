@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "RandomDnDGenerator": {
+      "commandName": "Project",
+      "workingDirectory": "$(ProjectDir)/Working"
+    }
+  }
+}

@@ -6,6 +6,9 @@ namespace RandomDnDGenerator
 {
     class Character
     {
+
+        protected Random random = new Random();
+
         public int strength;
 
         public int dexterity;
@@ -20,7 +23,7 @@ namespace RandomDnDGenerator
 
         Race race;
 
-        int[] scores = new int[6];
+        protected int[] scores = new int[6];
 
         public Character()
         {
@@ -32,7 +35,7 @@ namespace RandomDnDGenerator
             for (int i = 0; i < scores.Length; i++)
             {
                 List<int> rolls = new List<int>();
-                Random random = new Random();
+                
                 rolls.Add(random.Next(1, 7));
                 for (int j = 1; j < 4; j++)
                 {
@@ -61,6 +64,17 @@ namespace RandomDnDGenerator
 
         void RacePicker()
         {
+            int index = random.Next(1, Race.noOfRaces + 1);
+            switch (index)
+            {
+                case 1:
+                    race = new Dragonborn();
+                    break;
+                default:
+                    Console.WriteLine("Something went wrong in the race picker");
+                    break;
+
+            }
 
         }
     }    

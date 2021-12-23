@@ -7,25 +7,30 @@ using LumenWorks.Framework.IO.Csv;
 
 namespace RandomDnDGenerator
 {
-    class Race
+    class Race : Character
     {
-        public string race;
+        public static int noOfRaces = 1;
 
-        public int primeStatBoost;
+        protected string race;
 
-        public string subRace;
+        protected string subRace;
 
-        public int secondaryStatBoost;
+        protected int walkSpeed;
 
-        public int walkSpeed;
+        protected List<string> languages;
+
+        protected string RaceBonuses;
+
+        
         public Race()
         {
-            DataTable csvTable = new DataTable();
-            CsvReader csvReader = new CsvReader(new StreamReader(System.IO.File.OpenRead("races.csv")), true);
-            csvTable.Load(csvReader);
-
-
+            
         }
-    }
-    
+
+        protected virtual void ApplyAbilityScores(int main, int secondary)
+        {
+            scores[main] += 2;
+            scores[secondary] += 1;
+        }
+    }      
 }
